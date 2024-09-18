@@ -15,8 +15,8 @@
                     <i class="fa-solid fa-expand "></i>
                 </button>
             </nav>
-                {{-- mostramos el contenido del dashboard --}}
-                @livewire('contenido-dashboard')
+                {{-- mostramos el contenido de las configuraciones--}}
+                @livewire('contenido-configuraciones')
         </div>
 
     </div>

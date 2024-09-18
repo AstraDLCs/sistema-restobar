@@ -41,8 +41,8 @@ Route::middleware([
         return view('dashboard');
     });
 
-    Route::get('/holabbcita', function () {
-        return view('dashboard');
-    });
+    Route::get('/configuracion', function () {
+        return view('configuracion');
+    })->name('configuracion');
 
 });
