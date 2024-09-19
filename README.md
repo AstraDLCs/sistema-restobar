@@ -13,7 +13,7 @@
 ### 1 Clona el repositorio en tu maquina local
 
 ```bash
-git clone https://github.com/black-forest-labs/flux.git
+git clone https://github.com/AstraDLCs/sistema-restobar.git
 ```
 ### 2 accede al directorio del proyecto
 ```bash
