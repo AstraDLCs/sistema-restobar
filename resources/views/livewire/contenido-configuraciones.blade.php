@@ -1,5 +1,5 @@
-<div class="flex items-center justify-center min-h-screen">
-    <x-form-section submit="submitForm" class="dark:bg-gray-700 rounded-2xl p-4 m-4">
+<div class="flex items-center justify-center pt-4">
+    <x-form-section submit="submitForm" class="dark:bg-gray-700 rounded-2xl p-4 m-4 ">
         <x-slot name="title">
             Configuraciones del Sistema
         </x-slot>
@@ -31,6 +31,7 @@
                     class="w-full max-h-48 h-48 p-2 mb-2 dark:bg-gray-900 dark:text-white rounded-2xl" 
                     wire:model.defer="mensaje"></textarea>
                 <x-input-error for="mensaje" class="mb-2" />
+
             </div>
         </x-slot>
 

@@ -13,14 +13,26 @@ class ContenidoConfiguraciones extends Component
     public $direccion;
     public $mensaje;
 
+    // Reglas de validacion
     protected $rules = [
         'nombre' => 'required|string|max:255',
         'email' => 'required|email|max:255',
-        'telefono' => 'required|numeric',
+        'telefono' => 'required|numeric|digits:9',
         'direccion' => 'required|string|max:255',
-        'mensaje' => 'required|string',
+        'mensaje' => 'nullable|string|max:255',
     ];
 
+    // Mensajes cuando la validacion no se cumple
+    public $messages = [
+        'nombre' => 'El campo nombre es obligatorio',
+        'email' => 'El campo email es obligatorio',
+        'telefono' => 'El campo teléfono debe contener 9 dígitos',
+        'direccion' => 'El campo dirección es obligatorio',
+        'mensaje' => 'Ha surgido un error en el mensaje',
+    ];
+
+
+    // la funcion mount inicializa los valores de las propiedades del componente, se ejecuta cuando se carga el componente.
     public function mount()
     {
         $configuracion = Configuracion::firstOrCreate();
@@ -35,8 +47,11 @@ class ContenidoConfiguraciones extends Component
     {
         $this->mount();
     }
+
+    // Funcion para guardar los datos del formulario configuraciones
     public function submitForm()
     {
+        // Validamos los campos antes de guardar
         $this->validate();
 
         Configuracion::updateOrCreate(
@@ -49,8 +64,6 @@ class ContenidoConfiguraciones extends Component
                 'mensaje' => $this->mensaje,
             ]
         );
-
-        session()->flash('message', 'Configuración actualizada con éxito.');
     }
 
     public function render()
