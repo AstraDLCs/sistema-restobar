@@ -38,4 +38,4 @@ git push origin dev
 
 ### Hacer pull request
 
-En tu repositorio de github, vas a la branch ```dev``` y solicitas un compare pull request, asegurate de tener seleccionado el repositorio base y -la branch dev
+En tu repositorio de github, vas a la branch ```dev``` y solicitas un compare pull request, asegurate de tener seleccionado el repositorio base ```dev``` y tu branch ```dev```
