@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class configuracion extends Model
 {
+    protected $fillable = [
+        'nombre',
+        'email',
+        'telefono',
+        'direccion',
+        'mensaje'
+    ];
     use HasFactory;
 }

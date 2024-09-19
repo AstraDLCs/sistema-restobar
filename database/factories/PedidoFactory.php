@@ -26,6 +26,8 @@ class PedidoFactory extends Factory
 
         return [
             'sala_id' => $salaid,
+            // desde hace 5 dias hasta la actualidad
+            'created_at' => $faker->dateTimeBetween('-7 days', 'now'), 
             'numero_mesa' => $faker->numberBetween(1, $numeroMesa),
             'total' => $faker->randomFloat(2, 1, 100),
             'observaciones' => $faker->text,
