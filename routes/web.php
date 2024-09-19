@@ -45,4 +45,8 @@ Route::middleware([
         return view('configuracion');
     })->name('configuracion');
 
+    Route::get('/platos', function () {
+        return view('platos');
+    })->name('platos');
+
 });

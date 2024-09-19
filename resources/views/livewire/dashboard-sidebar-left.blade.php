@@ -24,16 +24,22 @@
 
 
 
-    <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
+    <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-2 pb-2 md:block md:pb-0 md:overflow-y-auto">
 
-        <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
-            <i class="fa-regular fa-user"></i>
-            <a href="#"
-                class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">{{ $user->name }}</a>
+        <div class="flex flex-col items-center justify-center flex-shrink-0 px-8 py-4 border-t border-b border-gray-300 dark:border-gray-600">
+            <div class="flex items-center space-x-4">
+                <i class="fa-regular fa-user dark:text-[#00FFFF] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+                <a href="#"
+                    class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
+                    {{ $user->name }}
+                </a>
+            </div>
         </div>
 
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="{{ __('dashboard') }}">Dashboard</a>
+            href="{{ __('dashboard') }}"><i
+                class="fa-solid fa-chart-line dark:text-[#FF00FF] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+            Dashboard</a>
 
 
         {{-- Desplegable de ventas --}}
@@ -41,7 +47,10 @@
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open"
                 class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black dark:text-white">
-                <span>Ventas</span>
+                <span>
+                    <i class="fa-solid fa-hand-holding-dollar dark:text-[#00FF00] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+                    Ventas
+                </span>
                 <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
                     class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
                     <path fill-rule="evenodd"
@@ -62,10 +71,15 @@
                 <div class="px-2 py-2 bg-white rounded-md shadow dark:bg-gray-700">
 
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
-                        href="#">Nueva Venta</a>
+                        href="#">
+                        <i class="fa-solid fa-plus dark:text-[#7FFF00] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+                        Nueva Venta
+                    </a>
 
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
-                        href="#">Historial ventas</a>
+                        href="#">
+                        <i class="fa-solid fa-clock-rotate-left dark:text-[#32CD32] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+                        Historial ventas</a>
 
                 </div>
             </div>
@@ -74,17 +88,24 @@
         {{-- fin de desplegable de ventas --}}
 
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="#">Platos</a>
+            href="{{ __('platos') }}">
+            <i class="fa-solid fa-pizza-slice dark:text-[#FF8C00] dark:bg-gray-700 m-1 p-2 rounded-full"></i> Platos
+        </a>
 
         <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-            href="#">Salas</a>
+            href="#">
+            <i class="fa-solid fa-house dark:text-[#FF1493] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+            Salas</a>
 
 
         <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open"
                 class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark:bg-transparent dark:focus:text-white dark:hover:text-white dark:focus:bg-gray-600 dark:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black dark:text-white">
 
-                <span>Ajustes</span>
+                <span>
+                    <i class="fa-solid fa-gear dark:text-[#FFFF00] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+                    Ajustes
+                </span>
 
                 <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
                     class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
@@ -106,10 +127,14 @@
                 {{-- contenido del desplegable --}}
                 <div class="bg-white rounded-md shadow dark:bg-gray-700">
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
-                        href="#">Usuarios</a>
+                        href="#">
+                        <i class="fa-solid fa-users dark:text-[#FFD700] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+                        Usuarios</a>
 
                     <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:bg-gray-600 dark:focus:text-white dark:hover:text-white dark:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline text-black"
-                        href="{{ __('configuracion') }}">Configuracion</a>
+                        href="{{ __('configuracion') }}">
+                        <i class="fa-solid fa-gears dark:text-[#FFA500] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
+                        Configuracion</a>
                 </div>
             </div>
         </div>

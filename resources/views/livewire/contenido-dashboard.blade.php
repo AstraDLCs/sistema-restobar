@@ -18,7 +18,7 @@
                                 class="fa-solid fa-plate-wheat text-4xl transition-transform transform hover:scale-125"></i>
                         </div>
                     </div>
-                    <a href="" class="block mt-4 text-blue-200 hover:text-blue-100">más información</a>
+                    <a href="{{__('platos')}}" class="block mt-4 text-blue-200 hover:text-blue-100">más información</a>
                 </div>
 
 

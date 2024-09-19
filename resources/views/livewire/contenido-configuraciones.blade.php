@@ -1,13 +1,17 @@
 <div class="flex items-center justify-center pt-4">
     <x-form-section submit="submitForm" class="dark:bg-gray-700 rounded-2xl p-4 m-4 ">
+        
+        {{-- slot del titulo --}}
         <x-slot name="title">
             Configuraciones del Sistema
         </x-slot>
 
+        {{-- slot de la descripcion --}}
         <x-slot name="description">
             Desde aquí puedes manejar las configuraciones del sistema para que se muestren en la página de contacto.
         </x-slot>
 
+        {{-- slot del contenido del formulario --}}
         <x-slot name="form">
             <div class="col-span-6 sm:col-span-4">
                 <x-label for="nombre" value="Nombre" />
@@ -35,6 +39,7 @@
             </div>
         </x-slot>
 
+        {{-- slot de los botones de accion --}}
         <x-slot name="actions">
             <div class="flex space-x-4">
                 <span id="savingMessage" class="hidden text-white bg-green-500 rounded-lg p-2">Guardando...</span>
@@ -49,6 +54,7 @@
                 </button>
             </div>
         
+            {{-- script para manejar mensajes --}}
             <script>
                 function showMessage(id) {
                     const messageElement = document.getElementById(id);
