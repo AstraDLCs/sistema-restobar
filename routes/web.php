@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
 Route::get('/ventas', function () {
     return view('welcome');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 
 
@@ -48,5 +47,8 @@ Route::middleware([
     Route::get('/platos', function () {
         return view('platos');
     })->name('platos');
+    Route::get('/perfil', function () {
+        return view('perfil');
+    })->name('perfil');
 
 });

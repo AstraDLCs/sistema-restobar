@@ -3,7 +3,7 @@
     x-data="{ open: false }">
     <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
 
-        <a href="#"
+        <a href="{{ route('welcome') }}"
             class="text-lg font-semibold tracking-widest text-gray-900 rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
             RestBar
         </a>
@@ -18,18 +18,14 @@
                     clip-rule="evenodd"></path>
             </svg>
         </button>
-
     </div>
-
-
-
 
     <nav :class="{ 'block': open, 'hidden': !open }" class="flex-grow px-2 pb-2 md:block md:pb-0 md:overflow-y-auto">
 
         <div class="flex flex-col items-center justify-center flex-shrink-0 px-8 py-4 border-t border-b border-gray-300 dark:border-gray-600">
             <div class="flex items-center space-x-4">
                 <i class="fa-regular fa-user dark:text-[#00FFFF] dark:bg-gray-700 m-1 p-2 rounded-full"></i>
-                <a href="#"
+                <a href="{{__('perfil')}}"
                     class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">
                     {{ $user->name }}
                 </a>

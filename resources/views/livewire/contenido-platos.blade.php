@@ -89,6 +89,8 @@
                         </td>
                     </tr>
                 @endforeach
+
+                {{-- modal para editar plato --}}
                 <x-dialog-modal wire:model="openModalEditarPlato">
 
                     <x-slot name="title">
@@ -114,11 +116,12 @@
                             id="imagenEditarPlato" wire:model="imagenEditarPlato">
 
                         @if ($imagenEditarPlato)
-                            @if (is_string($imagenEditarPlato))
-                                <img src="{{ $imagenEditarPlato }}" alt="">
-                            @else
-                                <img src="{{ $imagenEditarPlato->temporaryUrl() }}" alt="">
-                            @endif
+                            <div class="flex justify-center mb-4">
+                                <div class="w-64 h-64 overflow-hidden rounded-lg shadow-md">
+                                    <img src="{{ is_string($imagenEditarPlato) ? $imagenEditarPlato : $imagenEditarPlato->temporaryUrl() }}"
+                                        alt="Imagen del Plato" class="w-full h-full object-cover">
+                                </div>
+                            </div>
                         @endif
 
                         {{-- mensaje de carga cuando se sube una imagen --}}
