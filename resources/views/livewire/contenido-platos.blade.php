@@ -46,7 +46,7 @@
                         Imagen
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Action
+                        Editar/Eliminar
                     </th>
                 </tr>
             </thead>
@@ -72,10 +72,10 @@
                         </th>
 
                         <td class="px-2 py-2">
-                            {{ $plato->precio }}
+                            {{ $plato->precio }} S/
                         </td>
                         <td class="px-2 py-2">
-                            <img src="{{ $plato->imagen }}" alt="" class="w-20 h-20 object-cover rounded">
+                            <img src="{{ $plato->imagen }}" alt="" class="w-30 h-20 object-cover rounded">
                         </td>
                         <td class="px-2 py-2">
 
@@ -117,7 +117,7 @@
 
                         @if ($imagenEditarPlato)
                             <div class="flex justify-center mb-4">
-                                <div class="w-64 h-64 overflow-hidden rounded-lg shadow-md">
+                                <div class="w-96 h-64 overflow-hidden rounded-lg shadow-md">
                                     <img src="{{ is_string($imagenEditarPlato) ? $imagenEditarPlato : $imagenEditarPlato->temporaryUrl() }}"
                                         alt="Imagen del Plato" class="w-full h-full object-cover">
                                 </div>
@@ -133,8 +133,8 @@
                     </x-slot>
 
                     <x-slot name="footer">
-                        <x-button wire:click="actualizarPlatos">Actualizar</x-button>
-                        <x-danger-button wire:click="$set('openModalEditarPlato', false)">Cerrar</x-button>
+                        <x-button wire:click="actualizarPlatos" class="m-2">Actualizar</x-button>
+                        <x-danger-button wire:click="$set('openModalEditarPlato', false)" class="m-2">Cerrar</x-button>
                     </x-slot>
                 </x-dialog-modal>
             </tbody>

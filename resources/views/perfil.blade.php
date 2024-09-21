@@ -16,8 +16,8 @@
                     <i class="fa-solid fa-expand "></i>
                 </button>
             </nav>
-            {{-- mostramos el contenido del dashboard --}}
-
+            
+            {{-- mostramos el contenido de perfil --}}
             <div class="bg-white dark:bg-gray-800 m-4 p-6 rounded-3xl shadow-lg">
                 <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Perfil de Usuario</h1>
                 <div class="space-y-6">
