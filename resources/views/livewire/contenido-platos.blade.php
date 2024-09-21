@@ -1,9 +1,9 @@
 <div class="p-4">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-        {{-- Parte superior de la tabla, buscar - crear--}}
+        {{-- Parte superior de la tabla, buscar - crear --}}
         <div class="pb-4 bg-white dark:bg-gray-900">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between p-2">
 
                 {{-- seccion de busqueda --}}
                 <label for="table-search" class="sr-only">Buscar</label>
@@ -19,7 +19,7 @@
                         class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Buscar Platos">
                 </div>
-                
+
                 {{-- seccion del boton crear plato --}}
                 <div class="ml-4">
                     @livewire('modal-crear-plato')
@@ -34,7 +34,7 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Activo
+                        Disponible
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Plato
@@ -62,7 +62,7 @@
                         <td class="px-2 py-2 text-center">
                             <div class="inline-flex items-center">
                                 <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                    class="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-table-search-1" class="sr-only">Disponibilidad</label>
                             </div>
                         </td>
@@ -79,7 +79,7 @@
                         </td>
                         <td class="px-2 py-2">
 
-                            <x-button class="m-2">
+                            <x-button class="m-2" wire:click="modalEditarPlato({{ $plato }})">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </x-button>
 
@@ -89,6 +89,51 @@
                         </td>
                     </tr>
                 @endforeach
+                <x-dialog-modal wire:model="openModalEditarPlato">
+
+                    <x-slot name="title">
+                        <h1>Editar Plato</h1>
+                    </x-slot>
+
+                    <x-slot name="content">
+
+                        <input type="hidden" id="idEditarPlato" wire:model="idEditarPlato">
+
+                        <x-label value="Nombre del plato" class="text-lg mb-2 cursor-pointer "
+                            for="nombreEditarPlato" />
+                        <input type="text" class="w-full p-2 mb-2 border dark:bg-gray-800 dark:text-white"
+                            id="nombreEditarPlato" wire:model="nombreEditarPlato">
+                        <x-input-error for="nombreEditarPlato" class="mb-2" />
+
+                        <x-label value="Precio" class="text-lg mb-2 cursor-pointer" for="precioEditarPlato" />
+                        <input type="number" class="w-full p-2 mb-2 border dark:bg-gray-800 dark:text-white"
+                            id="precioEditarPlato" wire:model="precioEditarPlato">
+                        <x-input-error for="precioEditarPlato" class="mb-2" />
+
+                        <input type="file" name="imagenEditarPlato" class=" mb-2 cursor-pointer w-full p-2"
+                            id="imagenEditarPlato" wire:model="imagenEditarPlato">
+
+                        @if ($imagenEditarPlato)
+                            @if (is_string($imagenEditarPlato))
+                                <img src="{{ $imagenEditarPlato }}" alt="">
+                            @else
+                                <img src="{{ $imagenEditarPlato->temporaryUrl() }}" alt="">
+                            @endif
+                        @endif
+
+                        {{-- mensaje de carga cuando se sube una imagen --}}
+                        <div class="text-center">
+                            <div wire:loading wire:target="imagen" class="text-lg text-blue-300"> Cargando imagen,
+                                un momento por favor... </div>
+                        </div>
+
+                    </x-slot>
+
+                    <x-slot name="footer">
+                        <x-button wire:click="actualizarPlatos">Actualizar</x-button>
+                        <x-danger-button wire:click="$set('openModalEditarPlato', false)">Cerrar</x-button>
+                    </x-slot>
+                </x-dialog-modal>
             </tbody>
         </table>
     </div>
